@@ -1,0 +1,79 @@
+<app-header-horses></app-header-horses>
+<div class="card-container">
+  <h4>Filters</h4>
+
+
+  <div class="filter-groups-wrapper">
+
+    <!-- Horse Types -->
+    <div class="filter-group">
+      <h4 class="filter-title">Horse Types</h4>
+      <div class="filter-box">
+        <label class="filter-item">
+          <input type="checkbox" class="typeFilter" value="Pony">
+          <span>Pony</span>
+        </label>
+
+        <label class="filter-item">
+          <input type="checkbox" class="typeFilter" value="Horse">
+          <span>Horse</span>
+        </label>
+        <label class="filter-item">
+          <input type="checkbox" class="typeFilter" value="Draft">
+          <span>Draft</span>
+        </label>
+        <label class="filter-item">
+          <input type="checkbox" class="typeFilter" value="Magic">
+          <span>Magic</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Coat Colors -->
+    <div class="filter-group">
+      <h4 class="filter-title">Coat Colors</h4>
+      <div class="filter-box">
+        <label class="filter-item">
+          <input type="checkbox" class="colorFilter" value="White">
+          <span>White</span>
+        </label>
+
+
+        <label class="filter-item">
+          <input type="checkbox" class="colorFilter" value="Dapple Grey">
+          <span>Dapple Grey</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h4 class="filter-title">Generation</h4>
+      <div class="filter-box">
+        <label class="filter-item">
+          <input type="checkbox" class="generationFilter" value="G1">
+          <span>G1</span>
+        </label>
+
+
+        <label class="filter-item">
+          <input type="checkbox" class="generationFilter" value="G2">
+          <span>G2</span>
+        </label>
+
+        <label class="filter-item">
+          <input type="checkbox" class="generationFilter" value="G3">
+          <span>G3</span>
+        </label>
+
+        <label class="filter-item">
+          <input type="checkbox" class="generationFilter" value="G3.5">
+          <span>G3.5</span>
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <app-table></app-table>
+  <table id="horses" class="display table table-striped table-hover dark" style="width:90%;"></table>
+</div>

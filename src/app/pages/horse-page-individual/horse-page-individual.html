@@ -1,0 +1,106 @@
+<div *ngIf="loading" class="loading">
+    Loading...
+</div>
+
+<div *ngIf="!loading && horse" class="horse-page">
+
+    <section class="hero-section">
+        <div class="hero-left">
+
+            <div class="horse-carousel">
+
+                <img class="main-horse-img fade-image" [src]="'http://localhost/ssoarchive/images/' + currentCoatImage"
+                    [alt]="horse.breed_name">
+
+                <div class="carousel-dots">
+                    <span *ngFor="let coat of coats; let i = index" class="dot" [class.active]="i === currentCoatIndex"
+                        (click)="goToCoat(i)">
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="horse-info-card">
+            <div class="badge">HORSE BREED</div>
+
+            <h1>{{ horse.breed_name }}</h1>
+
+            <p class="short-desc">
+                {{ horse.breed_desc | slice:0:176 }}...
+            </p>
+
+            <hr>
+
+            <div class="info-grid">
+                <div>
+                    <span>TYPE</span>
+                    <p>{{ horse.breed_type }}</p>
+                </div>
+
+                <div>
+                    <span>PRICE</span>
+                    <p>⭐ {{ horse.breed_price }}</p>
+                </div>
+
+                <div>
+                    <span>REQUIREMENTS</span>
+                    <p>{{ horse.breed_requirement }}</p>
+                </div>
+
+                <div>
+                    <span>LOCATION</span>
+                    <p>{{ horse.breed_location }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="details-section">
+        <div class="text-box">
+            <h3>In Jorvik from {{ horse.release_date | date:'MMMM d, y' }}</h3>
+            <p>{{ horse.breed_desc }}</p>
+        </div>
+
+
+    </section>
+
+    <section class="video-section">
+        <iframe [src]="safeVideoUrl" title="Horse video" frameborder="0" allowfullscreen>
+        </iframe>
+    </section>
+
+    <section class="coat-section">
+        <h2>Coat variations</h2>
+
+        <div class="coat-grid">
+            <div class="coat-card" *ngFor="let coat of coats; let i = index" (click)="openCoatModal(coat)">
+                <img [src]="'http://localhost/ssoarchive/images/' + coat.coat_image" [alt]="coat.coat_name">
+
+                <div class="wood-label">
+                    {{ coat.coat_name }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<div class="coat-modal-backdrop" *ngIf="selectedCoat" (click)="closeCoatModal()">
+
+    <div class="coat-modal" (click)="$event.stopPropagation()">
+
+        <button class="modal-close" (click)="closeCoatModal()">×</button>
+
+
+
+        <img [src]="'http://localhost/ssoarchive/images/' + selectedCoat.coat_image" [alt]="selectedCoat.coat_name">
+
+        <div class="wood-label modal-label">
+            {{ selectedCoat.coat_name }}
+        </div>
+
+    </div>
+
+</div>

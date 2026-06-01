@@ -1,0 +1,284 @@
+body {
+    background: #e9e3d5;
+}
+
+.container {
+    border-radius: 20px;
+
+    margin-top: 15px;
+}
+
+.latest-container {
+    background-color: #f9f7f3;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.582);
+}
+
+.latest-horse {
+    background: #f9f7f3;
+    border: 2px solid #be916d;
+    margin: auto;
+    min-height: 500px;
+
+}
+
+.horse-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #4b230c;
+    text-transform: uppercase;
+}
+
+.horse-description {
+    font-size: 1rem;
+    color: #4b230c;
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.horse-info p {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+    color: #4b230c;
+}
+
+.purple-text {
+    color: #7c4dff;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.breed-btn {
+    border: 2px solid #4b230c;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4b230c;
+    background: white;
+}
+
+.breed-btn:hover {
+    background: #4b230c;
+    color: white;
+}
+
+.horse-image {
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.new-jorvik-badge {
+    position: absolute;
+    top: 460px;
+    right: 20px;
+    background: linear-gradient(to bottom, #f7e48d, #c79d35);
+    padding: 10px 35px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: bold;
+    color: #3d2107;
+    border: 4px solid #8f6425;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+}
+
+.horse-grid {
+    width: 100%;
+    margin-top: 35px;
+    padding-bottom: 60px;
+}
+
+.horse-card {
+    position: relative;
+    background:
+        linear-gradient(180deg, #fffaf1 0%, #f4e4c9 100%);
+    width: 100%;
+    max-width: 310px;
+    min-height: 390px;
+    border-radius: 24px;
+    margin: 0 auto;
+    cursor: pointer;
+    overflow: hidden;
+
+    border: 1px solid #d7b38d;
+    box-shadow: 0 14px 28px rgba(74, 37, 15, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.horse-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.6), transparent 35%),
+        radial-gradient(circle at bottom, rgba(139, 83, 48, 0.18), transparent 45%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.horse-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 24px 45px rgba(74, 37, 15, 0.28);
+    border-color: #9b6132;
+}
+
+.horse-card-title {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 78px;
+    padding: 16px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #221408, #815737, #be916d);
+    border-bottom: 3px solid #9a6f4d;
+}
+
+.horse-card-title h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #fff8ef;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.25;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.horse-card-image {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+}
+
+.horse-card-image::after {
+    content: "";
+    position: absolute;
+    bottom: 28px;
+    width: 65%;
+    height: 20px;
+    background: rgba(74, 37, 15, 0.22);
+    border-radius: 50%;
+    filter: blur(9px);
+    z-index: -1;
+}
+
+.horse-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    filter: drop-shadow(0 16px 12px rgba(0, 0, 0, 0.16));
+    transition: transform 0.3s ease;
+}
+
+.horse-card:hover .horse-card-image img {
+    transform: scale(1.08);
+}
+
+.horse-card-footer {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 18px 18px;
+    padding: 12px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 999px;
+    background: #6b3c20;
+    color: white;
+
+    font-weight: 900;
+    letter-spacing: 0.5px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.horse-card:hover .horse-card-footer {
+    background: #8b5330;
+    transform: translateY(-2px);
+}
+
+.no-results {
+    background: #fffaf1;
+    border: 2px dashed #be916d;
+    border-radius: 24px;
+    padding: 45px 20px;
+    margin: 40px auto;
+    max-width: 600px;
+    color: #4b230c;
+    box-shadow: 0 12px 28px rgba(74, 37, 15, 0.14);
+}
+
+.no-results h3 {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.no-results p {
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 992px) {
+    .horse-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .horse-description,
+    .horse-info {
+        text-align: center;
+        margin: auto;
+    }
+
+    .breed-btn {
+        display: block;
+        margin: auto;
+    }
+
+    .new-jorvik-badge {
+        top: auto;
+        bottom: -25px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+
+        font-size: 1.4rem;
+        padding: 10px 10px;
+    }
+
+    .horse-card {
+        max-width: 340px;
+        min-height: 370px;
+    }
+
+    .horse-card-image {
+        height: 230px;
+    }
+}

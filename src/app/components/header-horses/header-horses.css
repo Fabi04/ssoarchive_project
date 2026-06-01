@@ -1,0 +1,113 @@
+/* base header */
+.hero-header {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  background-image: url('/horses.jpg');
+  background-size: cover;
+  background-position: top;
+
+  color: white;
+  overflow: hidden;
+}
+
+/* dark overlay */
+.hero-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+/* blur layer */
+.hero-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(0px);
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+/* blur background on hover */
+.hero-header:hover::after {
+  backdrop-filter: blur(6px);
+}
+
+/* content wrapper */
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2; /* IMPORTANT so text stays above blur */
+}
+
+/* title always visible */
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  transition: 0.4s ease;
+}
+
+/* hidden content */
+.hero-hover-content {
+  opacity: 0;
+  transform: translateY(20px);
+  max-height: 0;
+  overflow: hidden;
+
+  transition: all 0.4s ease;
+}
+
+/* hover trigger */
+.hero-header:hover .hero-hover-content {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 300px;
+}
+
+/* optional: move title */
+.hero-header:hover .hero-title {
+  transform: translateY(-10px);
+}
+
+/* description */
+.hero-description p {
+  max-width: 750px;
+  margin: 15px auto;
+  font-size: 15px;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* features */
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* feature pills */
+.feature-item {
+  background: rgba(255,255,255,0.12);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+/* highlight words */
+.highlight {
+  background: rgba(255,255,255,0.15);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 600;
+}

@@ -1,0 +1,77 @@
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- Horses -->
+    <div class="col-12 col-md-6 col-lg-4">
+
+      <div class="card border-0">
+        <div class="image-container-horse card-img-top">
+          <div class="label horse-label">Horses</div>
+        </div>
+        <div class="card-body description-container">
+          <p class="pt-3">
+            Search for specific <b>breeds</b>, <b>coats</b> and get information about them such as their prices,
+            locations etc.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Maps / Collectibles -->
+    <div class="col-12 col-md-6 col-lg-4">
+
+      <div class="card border-0">
+        <div class="image-container-maps card-img-top">
+          <div class="label map-label">Maps / Collectibles</div>
+        </div>
+        <div class="card-body description-container">
+          <p class="pt-3">
+            Do you <b>need</b> some help with the in-game <b>collectibles</b>? Use the interactable map which will
+            help you find different kinds of collectibles all throughout the map of Jorvik.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Accessories -->
+    <div class="col-12 col-md-6 col-lg-4">
+
+      <div class="card border-0">
+        <div class="image-container-accessories card-img-top">
+          <div class="label accessories-label">Accessories</div>
+        </div>
+        <div class="card-body description-container">
+          <p class="pt-3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Optional big sections -->
+<div class="row g-4 mt-5">
+  <div class="col-12 horse-div card-section">
+    <div class="content text-center">
+      <h2>Horses</h2>
+      <button class="pulse-btn" [routerLink]="['/horses']">View More</button>
+    </div>
+  </div>
+
+  <div class="col-12 map-div card-section">
+    <div class="content text-center">
+      <h2>Map</h2>
+      <button class="pulse-btn" [routerLink]="['/collectibles']">Explore</button>
+    </div>
+  </div>
+
+  <div class="col-12 accessories-div card-section">
+    <div class="content text-center">
+      <h2>Accessories</h2>
+      <button class="pulse-btn" [routerLink]="['/accessories']">See Items</button>
+    </div>
+  </div>
+</div>

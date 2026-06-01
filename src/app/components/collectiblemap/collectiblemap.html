@@ -1,0 +1,77 @@
+<div class="map-page">
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel">
+
+    <div class="filter-title-main">Filters</div>
+    
+    <div class="filter-group" *ngFor="let type of allTypes">
+      <div class="filter-title">{{ type }}</div>
+
+      <label class="filter-item">
+        <input type="checkbox" [checked]="selectedTypes.includes(type)" (change)="toggleFilter(type)" />
+        <span>{{ type }}</span>
+      </label>
+    </div>
+
+    <div class="filter-actions">
+      <button (click)="showAll()">Show All</button>
+      <button (click)="hideAll()">Hide All</button>
+    </div>
+
+  </div>
+
+  <!-- MAP -->
+  <div class="map-container" (click)="getMapCoords($event)">
+    <img src="/Jorvikmap.png" class="map-image" alt="Jorvik Map">
+
+    <div class="collectible" *ngFor="let item of filteredCollectibles; trackBy: trackById"
+      [class]=" 'collectible ' + item.collectible_type " [style.left.%]="(item.x / coordinateSystem) * 100"
+      [style.top.%]="(item.y / coordinateSystem) * 100" [class.found]="item.found" (click)="openModal(item)">
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="collectible-modal" *ngIf="selectedItem" (click)="closeModal()">
+
+    <div class="modal-card" (click)="$event.stopPropagation()">
+
+      <div class="modal-header">
+
+        <div class="modal-title">
+          <span [ngClass]="selectedItem.collectible_type">
+            {{ selectedItem.collectible_type }}
+          </span>
+        </div>
+
+        <button class="modal-close" (click)="closeModal()">✕</button>
+
+      </div>
+
+      <img [src]="selectedItem.image" class="modal-image" alt="Collectible image">
+
+      <div class="modal-body">
+        <h6>
+          {{ selectedItem.title || (selectedItem.collectible_type + ' #' + selectedItem.id) }}
+        </h6>
+
+        <div class="desc">
+          {{ selectedItem.collectible_description || 'No description available.' }}
+        </div>
+
+        <div class="coords">
+          X: {{ selectedItem.x }}, Y: {{ selectedItem.y }}
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button (click)="toggle(selectedItem)">
+          {{ selectedItem.found ? 'Collected' : 'Mark as collected' }}
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

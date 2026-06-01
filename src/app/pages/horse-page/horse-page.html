@@ -1,0 +1,105 @@
+<app-header-horses></app-header-horses>
+
+<div class="latest-container container p-3">
+  <div class="latest-horse card shadow-sm rounded-4 p-3 position-relative">
+
+    <div class="row align-items-center">
+
+      <!-- RIGHT SIDE -->
+      <div class="col-lg-5 col-md-12 text-center">
+        <img [src]="'http://localhost/ssoarchive/images/' + latestHorse?.breed_image" alt="Horse"
+          class="img-fluid horse-image" />
+      </div>
+      <div class="col-lg-7 col-md-12 p-4">
+        <h1 class="horse-title">
+          {{ latestHorse?.breed_name }}
+        </h1>
+
+        <p class="horse-description mt-4">
+          {{ (latestHorse?.breed_desc | slice:0:300) + '...' }}
+        </p>
+
+        <div class="horse-info mt-4">
+          <p>
+            <strong>REQUIREMENTS:</strong>
+            <span class="purple-text">{{ " " +latestHorse?.breed_requirement }}</span>
+          </p>
+
+          <p>
+            <strong>PRICE:</strong>
+            <span class="purple-text">{{ " " +latestHorse?.breed_price }}</span>
+          </p>
+
+          <p>
+            <strong>LOCATION:</strong>
+            <span class="purple-text">{{ " " +latestHorse?.breed_location }}</span>
+          </p>
+        </div>
+
+        <button class="breed-btn mt-3 mb-5">
+          Go to breed page
+        </button>
+      </div>
+
+
+
+    </div>
+
+    <!-- BOTTOM BADGE -->
+    <div class="new-jorvik-badge">
+      New in Jorvik
+    </div>
+
+  </div>
+
+
+</div>
+<div class="container container-search mt-4">
+  <form (submit)="$event.preventDefault()">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search horse..." name="search" [(ngModel)]="searchText"
+        (ngModelChange)="onSearchChange()" />
+    </div>
+  </form>
+</div>
+
+
+<div class="container horse-grid">
+
+  <div *ngIf="horses && horses.length > 0; else noResults">
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let horse of horses">
+
+        <div class="horse-card"
+             [routerLink]="['/horse-page-individual', horse.breed_id]">
+
+          <div class="horse-card-title">
+            <h2>{{ horse.breed_name }}</h2>
+          </div>
+
+          <div class="horse-card-image">
+            <img [src]="'http://localhost/ssoarchive/images/' + horse.breed_image"
+                 [alt]="horse.breed_name" />
+          </div>
+
+          <div class="horse-card-footer">
+            <span>View details</span>
+            <span>→</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #noResults>
+    <div class="no-results text-center mt-4">
+      <h3>There is no match 😕</h3>
+      <p>Try a different search term.</p>
+    </div>
+  </ng-template>
+
+</div>

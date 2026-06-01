@@ -1,0 +1,153 @@
+.header {
+  width: 100%;
+  height: 500px;
+  background-image: url('/Header.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Playwrite NZ Basic';
+
+ 
+  padding-top: 60px; 
+}
+
+
+.about-site {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.item {
+  width: 30%; 
+  height: 550px;
+  background-color: rgb(241, 241, 241);
+  box-sizing: border-box;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .header {
+    height: 500px;
+    padding-top: 250px;
+  }
+}
+
+
+.horse-img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Card container */
+.card-container {
+  margin: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Wrapper for horizontal groups */
+.filter-groups-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* responsive */
+  margin-bottom: 20px;
+}
+
+/* Each filter group */
+.filter-group {
+  flex: 1;
+  min-width: 250px;
+  padding-bottom: 10px;
+  background-color: #fafafa;
+  border-radius: 15px;
+  padding: 10px
+}
+
+/* Divider between groups */
+.filter-group:not(:last-child) {
+  border-right: 1px solid #e6e6e6;
+  padding-right: 20px;
+}
+
+/* Group title */
+.filter-title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Filter container */
+.filter-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  
+}
+
+/* Individual filter button */
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Hide default checkbox */
+.filter-item input {
+  display: none;
+}
+
+/* Hover */
+.filter-item:hover {
+  background-color: #ffcaf1;
+  border-color: #e53bb9;
+}
+
+/* Checked text */
+.filter-item input:checked + span {
+  font-weight: 600;
+  color: #f590da;
+}
+
+/* Check icon */
+.filter-item span::before {
+  content: "✅";
+  font-size: 15px;
+  margin-right: 6px;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+/* Show check when active */
+.filter-item input:checked + span::before {
+  opacity: 1;
+}
+table.dataTable#horses thead th {
+  background: #e6e6e6 !important;
+  color: black !important;
+}
+
+table.dataTable#horses tbody tr:hover {
+  background: #0066ff !important;
+}
